@@ -25,7 +25,6 @@ jobs:
             
             - name: Aktuelles Verzeichnis ansehen
               run: pwd && ls -al
-
               
     say-bye:
         name: Abschied
@@ -33,6 +32,9 @@ jobs:
         needs: say-hello
 
         steps:
+            - name: Aktuelles Verzeichnis ansehen
+              run: pwd && ls -al
+
             - name: JavaScript ausführen
               run: node hello-world.js
 
