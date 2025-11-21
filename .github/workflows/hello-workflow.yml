@@ -25,6 +25,12 @@ jobs:
             
             - name: Aktuelles Verzeichnis ansehen
               run: pwd && ls -al
+
+            - name: Lade hello-world.js als Artifact hoch
+              uses: actions/upload-artifact@v4
+              with:
+                name: hello-world.js datei
+                path: hello-world.js
               
     say-bye:
         name: Abschied
@@ -32,6 +38,14 @@ jobs:
         needs: say-hello
 
         steps:
+            - name: Aktuelles Verzeichnis ansehen
+              run: pwd && ls -al
+
+            - name: Lade hello-world.js von Artifact herunter
+              uses: actions/download-artifact@v4
+              with:
+                name: hello-world.js datei
+
             - name: Aktuelles Verzeichnis ansehen
               run: pwd && ls -al
 
